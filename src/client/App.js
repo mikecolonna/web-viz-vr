@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import './app.css';
-import ReactImage from './react.png';
+import Header from './Header.jsx';
+import FileUploader from './FileUploader.jsx';
+import VREntrance from './VREntrance.jsx';
 
-export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
-  }
+class App extends Component {
 
   render() {
-    const { username } = this.state;
+
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+        <div>
+            <Header />
+            <FileUploader />
+            <VREntrance />
+        </div>
     );
   }
 }
+
+export default App;
