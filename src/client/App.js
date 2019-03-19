@@ -3,6 +3,7 @@ import './app.css';
 import Header from './Header.jsx';
 import FileUploader from './FileUploader.jsx';
 import VREntrance from './VREntrance.jsx';
+import './App.css';
 
 class App extends Component {
 
@@ -11,8 +12,10 @@ class App extends Component {
     return (
         <div>
             <Header />
-            <FileUploader />
-            <VREntrance />
+            <div className="App-container">
+                <FileUploader />
+                <VREntrance />
+            </div>
         </div>
     );
   }

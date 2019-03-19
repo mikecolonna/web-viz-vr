@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+var vtkRules = require('vtk.js/Utilities/config/dependency.js').webpack.core.rules;
+
+
 const outputDirectory = 'dist';
 
 module.exports = {
@@ -18,6 +21,7 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
+
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
@@ -26,7 +30,7 @@ module.exports = {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=100000'
       }
-    ]
+    ].concat(vtkRules),
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
